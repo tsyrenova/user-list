@@ -1,0 +1,12 @@
+.wrap {
+    border: 2px solid #a1a0a0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    /* padding: 20px 6px 19px 30px; */
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.formFieldsWrapper {
+    margin: 0 auto;
+}

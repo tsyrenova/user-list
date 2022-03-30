@@ -13,7 +13,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', 'jsx', '.ts', '.tsx', '.json'],
         alias: {
-            '@service': path.resolve(__dirname, '../src/service/'),
+            '@components': path.resolve(__dirname, '../src/components/'),
         },
     },
     module: {

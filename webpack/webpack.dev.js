@@ -1,5 +1,14 @@
 const path = require('path');
 
+const SRC_STYLES = path.resolve(__dirname, '..', 'src');
+const ANTD_STYLES = path.resolve(__dirname, '..', 'node_modules/antd');
+
+function inlineOptions(loaders) {
+    return loaders.map(({ loader, options = {} }) => {
+        return loader + '?' + JSON.stringify(options);
+    });
+}
+
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
@@ -13,20 +22,23 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/i,
-                include: path.resolve(__dirname, '..', 'src'),
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[path]-[name]__[local]___[hash:base64:5]',
+                include: [SRC_STYLES, ANTD_STYLES],
+                use: (info) => {
+                    return inlineOptions([
+                        { loader: 'style-loader' },
+
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: {
+                                    localIdentName: !info.resource.includes('antd')
+                                        ? '[path]-[name]__[local]'
+                                        : '[local]',
+                                },
                             },
                         },
-                    },
-                ],
+                    ]);
+                },
             },
         ],
     },
