@@ -1,6 +1,10 @@
 import { Button, Col, Form, Input, Row } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 
+// interface Props {
+//     userId: string;
+// }
+
 const UserForm = () => {
     return (
         <Form layout="vertical">

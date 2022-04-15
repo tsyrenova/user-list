@@ -1,7 +1,9 @@
 import { Button, Col, Row, Typography } from 'antd';
+// import { useParams } from 'react-router-dom';
 import { UserForm } from '../UserForm/UserForm';
 
 const UserInfo = () => {
+    // const { id } = useParams<{ id: string }>();
     return (
         <Col span={12} style={{ padding: '19px 34px' }}>
             <Row justify="space-between">
@@ -16,7 +18,7 @@ const UserInfo = () => {
                     </Button>
                 </Col>
                 <Col span={24}>
-                    <UserForm />
+                    <UserForm /* userId={id} */ />
                 </Col>
             </Row>
         </Col>

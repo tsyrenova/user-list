@@ -2,9 +2,9 @@ import 'antd/dist/antd.css';
 import { Route, Routes } from 'react-router-dom';
 import { Row } from 'antd';
 import { SortUser } from './components/sortUser/SortUser';
-import { Main } from './pages/UserList/Main/Main';
 import { AppRoute } from './types/const';
-import { UserInfo } from './pages/User/UserInfo/UserInfo';
+import { UserInfo } from './components/UserInfo/UserInfo';
+import { Main } from '@components/Main/Main';
 
 const App = () => {
     return (
@@ -12,7 +12,7 @@ const App = () => {
             <SortUser />
             <Routes>
                 <Route path={AppRoute.Main} element={<Main />} />
-                <Route path={AppRoute.User} element={<UserInfo />} />
+                <Route path={`${AppRoute.User}/:id`} element={<UserInfo />} />
             </Routes>
         </Row>
     );

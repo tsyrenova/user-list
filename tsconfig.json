@@ -18,7 +18,8 @@
     "skipLibCheck": true,
     "strict": true,
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@types/*": ["types/*"]
     }
   },
   "include": [
